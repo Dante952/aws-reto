@@ -18,11 +18,11 @@ phases:
       - ./gradlew build
       - echo Building Docker image...
       - docker build -t springboot-microservice .
-      - docker tag springboot-microservice:latest 776743135642.dkr.us-east-1.amazonaws.com/springboot-microservice:latest
+      - docker tag springboot-microservice:latest public.ecr.aws/<alias>/<repo>:latest
   post_build:
     commands:
       - echo Pushing Docker image...
-      - docker push 776743135642.dkr.us-east-1.amazonaws.com/springboot-microservice:latest
+      - docker push 776743135642.dkr.ecr.us-east-2.amazonaws.com/springboot-microservice:latest
       - echo Writing image definitions...
       - printf '[{"name":"springboot-microservice","imageUri":"%s"}]'776743135642.dkr.us-east-1.amazonaws.com/springboot-microservice:latest > imagedefinitions.json
 artifacts:
