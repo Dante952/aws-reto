@@ -11,20 +11,20 @@ phases:
     commands:
       - echo Logging in to Amazon ECR...
       - aws --version
-      - $(aws ecr get-login-password --region $AWS_DEFAULT_REGION | docker login --username AWS --password-stdin 776743135642.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com)
+      - $(aws ecr get-login-password --region us-east-2 | docker login --username AWS --password-stdin 776743135642.dkr.ecr.us-east-2.amazonaws.com)
   build:
     commands:
       - echo Build started on `date`
       - ./gradlew build
       - echo Building Docker image...
       - docker build -t springboot-microservice .
-      - docker tag springboot-microservice:latest 776743135642.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/springboot-microservice:latest
+      - docker tag springboot-microservice:latest 776743135642.dkr.ecr.us-east-2.amazonaws.com/springboot-microservice:latest
   post_build:
     commands:
       - echo Pushing Docker image...
-      - docker push 776743135642.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/springboot-microservice:latest
+      - docker push 776743135642.dkr.ecr.us-east-2.amazonaws.com/springboot-microservice:latest
       - echo Writing image definitions...
-      - printf '[{"name":"springboot-microservice","imageUri":"%s"}]'776743135642.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/springboot-microservice:latest > imagedefinitions.json
+      - printf '[{"name":"springboot-microservice","imageUri":"%s"}]'776743135642.dkr.ecr.us-east-2.amazonaws.com/springboot-microservice:latest > imagedefinitions.json
 artifacts:
   files:
     - imagedefinitions.json
