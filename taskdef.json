@@ -1,0 +1,15 @@
+[
+  {
+    "name": "springboot-microservice",
+    "imageUri": "REPLACED_AT_RUNTIME",
+    "memory": 512,
+    "cpu": 256,
+    "essential": true,
+    "portMappings": [
+      {
+        "containerPort": 8080,
+        "hostPort": 8080
+      }
+    ]
+  }
+]
