@@ -6,6 +6,7 @@ plugins {
 
 group = 'co.com.pragma'
 version = '0.0.1'
+sourceCompatibility = '17'
 
 java {
 	toolchain {
@@ -41,5 +42,6 @@ tasks.named('test') {
 
 bootJar {
 	archiveFileName = 'app.jar'
+	mainClass.set('co.com.pragma.persona')
 }
 
