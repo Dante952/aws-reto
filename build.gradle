@@ -42,6 +42,6 @@ tasks.named('test') {
 
 bootJar {
 	archiveFileName = 'app.jar'
-	mainClass.set('co.com.pragma.persona')
+	mainClass.set('co.com.pragma.persona.PersonaApplication')
 }
 
