@@ -23,7 +23,7 @@ public class PersonaController {
         return ResponseEntity.ok(personaService.getPersonaById(id));
     }
 
-    @GetMapping("guardarpersona")
+    @PostMapping("guardarpersona")
     public ResponseEntity<Persona> savePersona(@RequestBody PersonaRequest personaRequest){
         return ResponseEntity.ok(personaService.savePersona(personaMapper.personaRequestToPersona(personaRequest)));
     }

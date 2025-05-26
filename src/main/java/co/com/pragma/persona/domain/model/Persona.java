@@ -3,6 +3,7 @@ package co.com.pragma.persona.domain.model;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Setter
@@ -10,6 +11,7 @@ import lombok.Setter;
 @AllArgsConstructor
 @Entity
 @Table(name = "persona")
+@NoArgsConstructor
 public class Persona {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
